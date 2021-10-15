@@ -50,15 +50,15 @@ class ConvertVideoToM3U8 implements ShouldQueue
 
         $convertedFile = 'converted_videos/' . $this->video->id . '.m3u8';
 
-        // FFMpeg::fromDisk('public')
-        //     ->open($this->video->file)
-        //     ->exportForHLS()
-        //     // ->withEncryptionKey($encryptionKey)
-        //     ->toDisk('public')
-        //     ->addFormat($lowBitrate)
-        //     ->addFormat($midBitrate)
-        //     ->addFormat($highBitrate)
-        //     ->save($convertedFile);
+        FFMpeg::fromDisk('public')
+            ->open($this->video->file)
+            ->exportForHLS()
+            // ->withEncryptionKey($encryptionKey)
+            ->toDisk('public')
+            ->addFormat($lowBitrate)
+            ->addFormat($midBitrate)
+            ->addFormat($highBitrate)
+            ->save($convertedFile);
 
         //Update video conversion status and converted path
         if (true) {
